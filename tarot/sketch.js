@@ -1,11 +1,13 @@
 let card;
 let cards;
-let last;
+
 
 
 
 function setup() {
   createCanvas(130,220) ;
+
+
   card = loadImage("deck/turned.png");
   cards = Array().fill().map(c => new Card());
   frameRate(10)
@@ -15,7 +17,7 @@ function setup() {
 
 function draw() {
 
-  //background(0);
+  background(0);
   translate(width / 2, height / 2);
 
   for (let i = 0; i < 1; i++) {
