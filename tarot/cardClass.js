@@ -1,28 +1,34 @@
 class Card {
   constructor() {
     this.img = card;
-    this.w = 10;
-    this.h = 17;
+    this.png = hanged;
+    this.w = 0;
+    this.h = 0;
     this.zoom = 0;
-
+ 
   }
 
   display() {
     imageMode(CENTER);
-    scale(this.zoom, this.zoom);
-    //tint(255,120)
-    image(this.img, 0, 0, this.w, this.h);
-  }
+        scale(this.zoom, this.zoom);
+        image(this.img, 0, 0, this.w, this.h);
+
+      }
+
+
+    
 
   update() {
-    // console.log(this.zoom);
-    this.zoom += 0.2;
-    if(this.zoom >=2){
-        this.zoom = 0
+
+    if (this.zoom < 1) {
+      this.zoom += 0.1;
     }
+
   }
 
   delete() {
-    return this.zoom >= 2;
+    return this.zoom > 1;
   }
+
+
 }

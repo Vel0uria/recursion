@@ -55,16 +55,16 @@ function draw() {
 
 //   }
 
-drawCircle(width/2,height/2,100)
+//drawCircle(width/2,height/2,100)
 
 
 }
 
-function drawCircle(x, y, d) {
+// function drawCircle(x, y, d) {
 
-  ellipse(x, y, d);
-  if (d > 2) {
-    drawCircle(x + d * 0.6, y, d * 0.6);
-    drawCircle(x - d * 0.6, y, d * 0.6);
-  }
-}
+//   ellipse(x, y, d);
+//   if (d > 2) {
+//     drawCircle(x + d * 0.6, y, d * 0.6);
+//     drawCircle(x - d * 0.6, y, d * 0.6);
+//   }
+// }

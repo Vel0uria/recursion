@@ -19,7 +19,6 @@ function setup() {
   cards = []
 
 
-  
   reading(deck);
 
   for (let x = 0; x <= width-100; x += 100) {
@@ -40,7 +39,6 @@ function draw() {
 
   for(let x = 0; x < xPos.length; x ++){
     let pos = xPos[x]
-
      image(cards[x],pos,0,100,190)
 //console.log(pos);
 
