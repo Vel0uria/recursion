@@ -1,70 +1,50 @@
-let points;
-let current;
-let previous
-let percent; 
-let colorR = 0.0;
-let colorG = 0.0;
-let colorB = 0.0;
+let deck;
+let pic;
+let hanged;
+let world;
+let bg;
 
-//let col = 0.0;
 function setup() {
-  createCanvas(300, 200);
-  points = [];
-	percent = 0.5
-  const n = 5;
-  for (let i = 0; i < n; i++) {
-    let angle = i * TWO_PI / n;
-    let v = p5.Vector.fromAngle(angle);
-    v.mult(width/2);
-    v.add(width / 2, height/2);
-    points.push(v);
-  }
-  background(0);
+  createCanvas(300, 218);
+  imageMode(CENTER);
+
+  deck = ["deck/arcano_1.png", "deck/mundo.png", "deck/mat.png"];
+  bg = loadImage("deck/cortina.jpg");
+  pic = floor(random(deck.length));
+  card = loadImage(deck[pic]);
 
 }
-
 
 function draw() {
-  current = createVector(random(width), random(height));
+  background(70,0,15);
+image(bg,width/2,height/2 ,width,height)
 
-  colorR = colorR + 0.1;
-  colorG = colorG + 0.2;
-  colorB = colorB + 0.3;
+translate(width / 2, height / 2);
 
-  let nR =  noise(colorR)*255
-  let nG = noise(colorG) * 255
-  let nB = noise(colorB) * 255
-  //noStroke()
-  noFill()
- stroke(nR, nG, nB,100);
- strokeWeight(0.5)
-//   for (let i = 0; i < 900; i++) {
-//     strokeWeight(0.5);
-//     stroke(nR, nG, nB,100);
-// 	let next = random(points);
-// 	if(next !== previous){
-// 		current.x = lerp(current.x, next.x, percent);
-// 		current.y = lerp(current.y, next.y, percent);
+  drawHanged(0, -35, 80, 120);
+  push;
 
-// 		ellipse(current.x, current.y,0,0);
-
-  
-// previous = next
-
-// 	}
-
-//   }
-
-//drawCircle(width/2,height/2,100)
-
-
+  scale(1, -1);
+  drawHanged(-0, -35, 80, 120);
+  pop;
 }
 
-// function drawCircle(x, y, d) {
+function drawCircle(x, y, d) {
+  ellipse(x, y, d);
+  if (d > 2) {
+    drawCircle(x + d * 0.6, y, d * 0.6);
+    drawCircle(x - d * 0.6, y, d * 0.6);
+  }
+}
 
-//   ellipse(x, y, d);
-//   if (d > 2) {
-//     drawCircle(x + d * 0.6, y, d * 0.6);
-//     drawCircle(x - d * 0.6, y, d * 0.6);
-//   }
-// }
+function drawHanged(x, y, zX, zY) {
+  let r = 0.7;
+
+  image(card, x, y, zX, zY);
+  if (zX > 15) {
+    drawHanged(x + zX * r, y, zX * r, zY * r);
+    drawHanged(x - zX * r, y, zX * r, zY * r);
+    // drawHanged(x + zX*r,y + zY*r,zX*r,zY*r)
+    // drawHanged(x - zX*r,y - zY*r,zX*r,zY*r)
+  }
+}
