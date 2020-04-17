@@ -2,6 +2,8 @@
   "name": "recursion",
   "projects": [
     "anim1",
-    "tarot"
+    "tarot",
+    "anim2",
+    "anim3"
   ]
 }

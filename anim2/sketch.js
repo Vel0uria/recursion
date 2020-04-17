@@ -6,8 +6,8 @@ let percent;
 let colorR = 0.0;
 let colorG = 0.0;
 let colorB = 0.0;
-
 function setup(){
+
     createCanvas(windowWidth,windowHeight)
     const n = 5;
     percent = 0.5
@@ -37,20 +37,20 @@ function draw(){
     noFill()
    stroke(nR, nG, nB,100);
    strokeWeight(0.5)
-  //   for (let i = 0; i < 900; i++) {
-  //     strokeWeight(0.5);
-  //     stroke(nR, nG, nB,100);
-  // 	let next = random(points);
-  // 	if(next !== previous){
-  // 		current.x = lerp(current.x, next.x, percent);
-  // 		current.y = lerp(current.y, next.y, percent);
+    for (let i = 0; i < 900; i++) {
+      strokeWeight(0.5);
+      stroke(nR, nG, nB,100);
+  	let next = random(points);
+  	if(next !== previous){
+  		current.x = lerp(current.x, next.x, percent);
+  		current.y = lerp(current.y, next.y, percent);
   
-  // 		ellipse(current.x, current.y,0,0);
+  		ellipse(current.x, current.y,0,0);
   
-  // previous = next
+  previous = next
   
-  // 	}
+  	}
   
-  //   }
+    }
 
 }
